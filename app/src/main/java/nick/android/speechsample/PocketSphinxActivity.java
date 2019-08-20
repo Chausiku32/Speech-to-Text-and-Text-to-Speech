@@ -30,14 +30,19 @@ public class PocketSphinxActivity extends Activity implements
         RecognitionListener {
 
     /* Named searches allow to quickly reconfigure the decoder */
-    private static final String KWS_SEARCH = "wakeup";
+    private static final String KWS_SEARCH = "wanyonyez";
+    private static final String ACTIONS = "music";
+    private static final String INFORMATION = "today";
+    private static final String CHANGE = "background";
+    private static final String CHECK ="email";
+    private static final String UPDATES = "youtube";
     private static final String FORECAST_SEARCH = "forecast";
     private static final String DIGITS_SEARCH = "digits";
     private static final String PHONE_SEARCH = "phones";
     private static final String MENU_SEARCH = "menu";
 
     /* Keyword we are looking for to activate menu */
-    private static final String KEYPHRASE = "oh mighty computer";
+    private static final String KEYPHRASE = "wamlambez";
 
     /* Used to handle permission request */
     private static final int PERMISSIONS_REQUEST_RECORD_AUDIO = 1;
@@ -165,7 +170,7 @@ public class PocketSphinxActivity extends Activity implements
         ((TextView) findViewById(R.id.result_text)).setText("");
         if (hypothesis != null) {
             String text = hypothesis.getHypstr();
-            speech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+            //speech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
             Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
         }
     }
@@ -217,7 +222,7 @@ public class PocketSphinxActivity extends Activity implements
         recognizer.addKeyphraseSearch(KWS_SEARCH, KEYPHRASE);
 
         // Create grammar-based search for selection between demos
-        File menuGrammar = new File(assetsDir, "menu.gram");
+        /*File menuGrammar = new File(assetsDir, "menu.gram");
         recognizer.addGrammarSearch(MENU_SEARCH, menuGrammar);
 
         // Create grammar-based search for digit recognition
@@ -230,7 +235,7 @@ public class PocketSphinxActivity extends Activity implements
 
         // Phonetic search
         File phoneticModel = new File(assetsDir, "en-phone.dmp");
-        recognizer.addAllphoneSearch(PHONE_SEARCH, phoneticModel);
+        recognizer.addAllphoneSearch(PHONE_SEARCH, phoneticModel);*/
 
     }
 
